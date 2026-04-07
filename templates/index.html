@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مذاق الأمل</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container nav-content">
+            <h1 class="store-name">مذاق الأمل</h1>
+            <img src="{{ url_for('assets', filename='header-logo.png') }}" alt="شعار المتجر" class="header-logo">
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <img src="{{ url_for('assets', filename='logo.png') }}" alt="شعار مذاق الأمل" class="hero-logo">
+            <h2>أهلاً بكم في مذاق الأمل</h2>
+            <p>حلويات طازجة ومذاق لا ينسى.</p>
+        </div>
+    </section>
+
+    <main class="container products-section">
+        <h3>منتجاتنا</h3>
+        <div class="gallery">
+            {% for product in products %}
+            <article class="product-card">
+                <img src="{{ url_for('assets', filename=product.image) }}" alt="{{ product.name }}" class="product-image">
+                <h4>{{ product.name }}</h4>
+                <p class="price">{{ product.price }}</p>
+                <a
+                    class="whatsapp-btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://wa.me/{{ whatsapp_number }}?text={{ ('مرحباً، أود طلب: ' ~ product.name ~ ' - السعر: ' ~ product.price)|urlencode }}"
+                >
+                    اطلب عبر واتساب
+                </a>
+            </article>
+            {% endfor %}
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>الإيميل: <a href="mailto:alhlalm902@gmail.com">alhlalm902@gmail.com</a></p>
+            <p>الموقع: المفرق، مخيم الزعتري،قطاع 5</p>
+            <p>جميع الحقوق محفوظة لمتجر مذاق الأمل 2026.</p>
+        </div>
+    </footer>
+</body>
+</html>
