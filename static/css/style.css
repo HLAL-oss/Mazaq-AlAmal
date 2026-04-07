@@ -48,10 +48,10 @@ body {
 .hero {
    background-image:
  url('hero-bg.png.png');
-   background-size: cover;
-   background-position: center; 
+   background-size: contain;
+   background-position: center top; 
    background-repeat: no-repeat;
-   min-height: 400px;
+   min-height: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
